@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <title>サイトタイトル</title>
+ <meta name="description" content="ディスクリプションを入力">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="style.css">
+ <!-- [if lt IE 9] -->
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+ <!-- [endif] -->
+ <script src="main.js"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ </head>
+ <body>
+    <article>
+        <div class="side">
+          <p>サイドバー</p>
+          <div id='ranking'>
+
+          </div>
+        </div> 
+        <div class="content">
+          <p>メインコンテンツ</p>
+          <input type="button" value='club1' onclick ="lap(this,this.value)">
+          <input type="button" value='club2' onclick ="lap(this,this.value)">
+          <input type="button" value='club3' onclick ="lap(this,this.value)">
+        </div>
+      </article>
+ </body>
+</html>
