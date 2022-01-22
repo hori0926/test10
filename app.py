@@ -1,7 +1,5 @@
 from crypt import methods
-import re
 import time, json, os
-from turtle import position
 import pandas as pd
 from flask import Flask, render_template, request, url_for
 import gspread
