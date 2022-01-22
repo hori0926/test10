@@ -57,7 +57,7 @@ function send_current_team(position, rank, team, time){
             document.getElementById('message').innerText = this.responseText;
         }
     };
-    xhttp.open("POST", "http://127.0.0.1:5000//record", true);
+    xhttp.open("POST", "https://ekiden-lap.herokuapp.com//record", true);
     // POSTはURLにパラメータを載せないので、以下のようにやるよ
     xhttp.setRequestHeader("Content-type", "application/x-www-form-urlencoded");
     xhttp.send('data='+json);

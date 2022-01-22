@@ -1,6 +1,6 @@
 from crypt import methods
 import re
-import time, json
+import time, json, os
 from turtle import position
 import pandas as pd
 from flask import Flask, render_template, request, url_for
@@ -9,10 +9,13 @@ from oauth2client.service_account import ServiceAccountCredentials
 import functions
 
 #spreadsheet関連の設定
-scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
-credentials = ServiceAccountCredentials.from_json_keyfile_name('/Users/horinouchihirotaka/Documents/駅伝タイム計測/nada-ekiden-d6e023c85251.json', scope)
-gc = gspread.authorize(credentials)
-workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')
+SCOPES = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
+creds_dict = json.loads(json_creds)
+creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
+creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, SCOPES)
+client = gspread.authorize(creds)
+workbook = client.open_by_url("https://docs.google.com/spreadsheets/d/1tFINwe_p2LvmH7PwnccTOodAiwznBpbRgDi8LslGCUI/edit#gid=0")
 worksheet = workbook.worksheet('シート1')
 
 df = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
