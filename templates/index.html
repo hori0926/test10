@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ja">
+ <head>
+ <meta charset="utf-8">
+ <title>サイトタイトル</title>
+ <meta name="description" content="ディスクリプションを入力">
+ <meta name="viewport" content="width=device-width, initial-scale=1.0">
+ <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+
+ <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+ <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
+ <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+ <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+ </head>
+ <body>
+    <div class='display_none'>
+      <table id='rank'>
+        <tr>
+          <td class='number'></td>
+          <td>
+          <select required class='cp_ipselect cp_sl02 pulldown'>
+            <option value="" hidden>Choose</option>
+            <option value="1">cat</option>
+            <option value="2">dog</option>
+            <option value="3">rabbit</option>
+            <option value="4">squirrel</option>
+          </select>
+          </td>
+          <td class='time'></td>
+        </tr>
+      </table>
+    </div>
+    <input id='position' type="hidden" value= {{ position }}>
+
+
+    <article>
+        <div class="side">
+          <p>サイドバー</p>
+          <table id='ranking'>
+            <tbody>
+              <tr>
+                <th>順位</th>
+                <th>チーム名</th>
+                <th>タイム(時刻)</th>
+              </tr>
+            </tbody>
+          </table>
+        </div> 
+
+        <div class="content">
+          <p>メインコンテンツ</p>
+          <input type="button" value='club1' onclick ="lap(this,this.value)">
+          <input type="button" value='club2' onclick ="lap(this,this.value)">
+          <input type="button" value='club3' onclick ="lap(this,this.value)">
+        </div>
+
+      </article>
+      <div>
+        <form action="/upload" id='data_form' method='POST'>
+              <input type="text" name='name' value='taro'>
+              <input type="submit" value='送信' id='send'>
+        </form>
+      </div>
+      <p id='user_name'>hirotaka</p>
+      <input type="button" id='register' value='r'>
+      <input type="button" id='check' value='c'>
+      <p id='message'>heelo</p>
+ </body>
+</html>
