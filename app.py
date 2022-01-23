@@ -7,7 +7,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import functions
 
 #spreadsheet関連の設定
-SCOPES = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+"""SCOPES = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
 print(json_creds)
 creds_dict = json.loads(json_creds)
@@ -19,7 +19,7 @@ workbook = client.open_by_url("https://docs.google.com/spreadsheets/d/1PxaWWtKH6
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('/Users/horinouchihirotaka/Documents/important/nada-ekiden-af40089f6326.json', scope)
 gc = gspread.authorize(credentials)
-workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')"""
+workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')
 
 worksheet = workbook.worksheet('シート1')
 worksheet = workbook.worksheet('シート2')
