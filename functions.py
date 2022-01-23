@@ -6,3 +6,7 @@ def record_time(df, worksheet, club_name, lap_time, position):
     df[df['team'] == club_name] = series
     set_with_dataframe(worksheet,df)
     return df
+
+def create_ranking(df2, worksheet2):
+    
+    return df2
