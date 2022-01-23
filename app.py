@@ -22,7 +22,7 @@ gc = gspread.authorize(credentials)
 workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')"""
 
 worksheet = workbook.worksheet('シート1')
-worksheet = workbook.worksheet('シート2')
+worksheet2 = workbook.worksheet('シート2')
 
 
 def my_url_for(endpoint, **values):
@@ -53,6 +53,7 @@ def upload():
 @app.route('/record', methods=["GET", "POST"])
 def test():
     df = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
+    df2 = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
     data = json.loads(request.form['data'])
     position = data['position']
     print(position)
