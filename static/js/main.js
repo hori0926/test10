@@ -67,6 +67,9 @@ function send_current_team(position, rank, team, time){
 window.onload = function(){
     const position = document.getElementById('position').getAttribute('value')
     console.log(position)
+    document.getElementById('check').onclick = function () {
+        check();
+    }
 }
 
 
@@ -75,12 +78,13 @@ function check() {
     var xhttp = new XMLHttpRequest();
     xhttp.onreadystatechange = function () {
         if (this.readyState == 4 && this.status == 200) {
-            document.getElementById('message').innerText = this.responseText;
+            jdata = JSON.parse(this.responseText);
+            console.log(jdata[1]);
         }
     };
     const user_name = document.getElementById('user_name').value;
     // ここのURLはFlask起動時に表示されるURLにすること
-    xhttp.open("GET", `http://127.0.0.1:5000/?name=${user_name}`, true);
+    xhttp.open("GET", `https://ekiden-lap.herokuapp.com/record`, true);
     xhttp.send();
 }
 

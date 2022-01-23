@@ -14,7 +14,12 @@ creds_dict = json.loads(json_creds)
 creds_dict["private_key"] = creds_dict["private_key"].replace("\\\\n", "\n")
 creds = ServiceAccountCredentials.from_json_keyfile_dict(creds_dict, SCOPES)
 client = gspread.authorize(creds)
-workbook = client.open_by_url("https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0")
+workbook = client.open_by_url("https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0")"""
+scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+credentials = ServiceAccountCredentials.from_json_keyfile_name('/Users/horinouchihirotaka/Documents/important/nada-ekiden-af40089f6326.json', scope)
+gc = gspread.authorize(credentials)
+workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')"""
+
 worksheet = workbook.worksheet('シート1')
 
 df = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
