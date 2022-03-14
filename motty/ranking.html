@@ -14,6 +14,19 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
   </head>
   <body>
+    <div class="wrapper" v-bind:class="{ active: open }">
+      <a href="https://ekiden.nada-sc.jp">灘校駅伝大会2022</a>
+      <div
+        id="btn01"
+        class="btn-trigger"
+        v-on:click="open = !open"
+        v-bind:class="{ active: open }"
+      >
+        <span></span>
+        <span></span>
+        <span></span>
+      </div>
+    </div>
     <table>
       <tr>
         <th class="rank">順位</th>

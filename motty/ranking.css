@@ -119,3 +119,17 @@ a {
   border-bottom: 1px solid black;
   font-family: "Franklin Gothic Medium", "Arial Narrow", Arial, sans-serif;
 }
+
+.wrapper {
+  padding: 1em 10%;
+  background: #6077da;
+  display: flex;
+  justify-content: space-between;
+}
+a {
+  text-decoration: none;
+  margin: 0%;
+  font-size: 1em;
+  font-weight: bold;
+  color: #fff;
+}
