@@ -1,0 +1,238 @@
+<!DOCTYPE html>
+<html lang="ja">
+  <head>
+    <meta charset="utf-8" />
+    <title>サイトタイトル</title>
+    <meta name="description" content="ディスクリプションを入力" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="style.css" />
+
+    <script src="http://html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <script src="http://css3-mediaqueries-js.googlecode.com/svn/trunk/css3-mediaqueries.js"></script>
+
+    <script src="main.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
+  </head>
+  <body>
+    <div class="display_none">
+      <table id="rank">
+        <tr>
+          <td class="number"></td>
+          <td>
+            <select required class="cp_ipselect cp_sl02 pulldown">
+              <option value="" hidden>Choose</option>
+              <option value="1">ソフトテニス部</option>
+              <option value="2">将棋部</option>
+              <option value="3">ワンダーフォーゲルA</option>
+              <option value="4">ワンダーフォーゲルB</option>
+              <option value="5">ディベート部</option>
+              <option value="6">サッカーA</option>
+              <option value="7">サッカーB</option>
+              <option value="8">柔道部</option>
+              <option value="9">卓球部</option>
+              <option value="10">クイズ同好会</option>
+              <option value="11">陸上A</option>
+              <option value="12">陸上B</option>
+              <option value="13">剣道部</option>
+              <option value="14">生物研究部</option>
+              <option value="15">バスケットボールA</option>
+              <option value="16">バスケットボールB</option>
+              <option value="17">ソフトボール部</option>
+              <option value="18">水泳部</option>
+              <option value="19">バトミントン部</option>
+            </select>
+          </td>
+          <td class="time"></td>
+        </tr>
+      </table>
+    </div>
+    <input id="position" type="hidden" value="" />
+
+    <article>
+      <div class="side">
+        <table id="ranking">
+          <tbody>
+            <tr>
+              <th>順位</th>
+              <th>チーム名</th>
+              <th>タイム(時刻)</th>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="content">
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="1. ソフトテニス部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="2. 将棋部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="3. ワンダーフォーゲルA"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="4. ワンダーフォーゲルB"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="5. ディベート部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="6. サッカーA"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="7. サッカーB"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="8. 柔道部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="9. 卓球部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="10. クイズ同好会"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="11. 陸上A"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="12. 陸上B"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="13. 剣道部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="14. 生物研究部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="15. バスケットボールA"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="16. バスケットボールB"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="17. ソフトボール部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="18. 水泳部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+
+        <div>
+          <input
+            class="button"
+            type="button"
+            value="19. バトミントン部"
+            onclick="lap(this,this.value)"
+          />
+        </div>
+      </div>
+    </article>
+  </body>
+</html>

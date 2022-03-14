@@ -1,5 +1,7 @@
 from crypt import methods
-import time, json, os
+from pdb import find_function
+import time, json, os, datetime
+from turtle import position
 import pandas as pd
 from flask import Flask, render_template, request, url_for
 import gspread
@@ -7,7 +9,7 @@ from oauth2client.service_account import ServiceAccountCredentials
 import functions
 
 #spreadsheet関連の設定
-SCOPES = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
+"""SCOPES = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 json_creds = os.getenv("GOOGLE_SHEETS_CREDS_JSON")
 print(json_creds)
 creds_dict = json.loads(json_creds)
@@ -19,11 +21,10 @@ workbook = client.open_by_url("https://docs.google.com/spreadsheets/d/1PxaWWtKH6
 scope = ['https://spreadsheets.google.com/feeds','https://www.googleapis.com/auth/drive']
 credentials = ServiceAccountCredentials.from_json_keyfile_name('/Users/horinouchihirotaka/Documents/important/nada-ekiden-af40089f6326.json', scope)
 gc = gspread.authorize(credentials)
-workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')"""
+workbook = gc.open_by_url('https://docs.google.com/spreadsheets/d/1PxaWWtKH66Qh4TEvLA3iBTWXiMIDQ2qK-awXb-z6zQw/edit#gid=0')
 
 worksheet = workbook.worksheet('シート1')
 worksheet2 = workbook.worksheet('シート2')
-
 
 def my_url_for(endpoint, **values):
     url = url_for(endpoint, **values) 
@@ -33,6 +34,7 @@ app = Flask(__name__)
 app.jinja_env.globals['url_for'] = my_url_for
 
 club_names = ['club1','club2','club3']
+positions = ['leg1','leg2','leg3','leg4','leg5']
 
 @app.route('/home')
 def home():
@@ -52,15 +54,21 @@ def upload():
 
 @app.route('/record', methods=["GET", "POST"])
 def test():
+    global club_names, positions
     df = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
-    df2 = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
+
+    df.index = [str(ind) for ind in df.index]
     data = json.loads(request.form['data'])
     position = data['position']
-    print(position)
     rank = data['rank']
     team = data['team']
     time = data['time']
-    df = functions.record_time(df, worksheet, team, time, position)
+    club_number = functions.get_club_number(team, club_names)
+    position_number = functions.get_position_number(position, positions)
+    functions.record_time(df,worksheet, club_number, time, position_number)
+    df = pd.DataFrame(worksheet.get_all_values()[1:],columns = worksheet.get_all_values()[0])
+    print(df)
+    functions.create_ranking(df,worksheet2,club_names, positions)
     return 'good'
     
 if __name__ == '__main__':
