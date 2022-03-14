@@ -91,7 +91,7 @@ function send_current_team(position, rank, team, time) {
   console.log(json);
 
   var URL =
-    "https://script.google.com/macros/s/AKfycbwBcY5kHzSO6_Wt8T7YxCqGk5GLPKCHG60TE4g3H1iPE-W0atOG4HSy7N4b0rJLwDnXyQ/exec";
+    "https://script.google.com/macros/s/AKfycbzbQoExNwqPYyFbRsnjasSGqm9FYr9-loOGTIKatW3WYJNm3-7U5PgDpxB_CzVLeHpAIQ/exec";
 
   fetch(URL, {
     method: "POST",
