@@ -5,7 +5,7 @@ window.onload = function () {
 
 function fetch_ranking() {
   fetch(
-    "https://script.google.com/macros/s/AKfycbzYXtmWnDDlRd_eP49QPLtyorqzTrpOKWeuvokP2D_LCgichhYEdHNcMbWqwaRZDN5phg/exec"
+    "https://script.google.com/macros/s/AKfycbwBcY5kHzSO6_Wt8T7YxCqGk5GLPKCHG60TE4g3H1iPE-W0atOG4HSy7N4b0rJLwDnXyQ/exec"
   )
     .then((res) => {
       return res.json();

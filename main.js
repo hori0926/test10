@@ -28,7 +28,9 @@ var club_names = [
   "16. バスケットボールB",
   "17. ソフトボール部",
   "18. 水泳部",
-  "19. バドミントン",
+  "19. バドミントン部",
+  "20. 硬式テニスA",
+  "21. 硬式テニスB",
 ];
 const club_num = club_names.length;
 
@@ -89,7 +91,7 @@ function send_current_team(position, rank, team, time) {
   console.log(json);
 
   var URL =
-    "https://script.google.com/macros/s/AKfycbzYXtmWnDDlRd_eP49QPLtyorqzTrpOKWeuvokP2D_LCgichhYEdHNcMbWqwaRZDN5phg/exec";
+    "https://script.google.com/macros/s/AKfycbwBcY5kHzSO6_Wt8T7YxCqGk5GLPKCHG60TE4g3H1iPE-W0atOG4HSy7N4b0rJLwDnXyQ/exec";
 
   fetch(URL, {
     method: "POST",
