@@ -64,9 +64,12 @@ function create_row(json, i, table_obj) {
 
 function cut_mt(time_str) {
   var time_list = time_str.split(":");
+  if (time_list[1] == undefined) {
+    return time_str;
+  }
   for (let t = 0; t < 3; t++) {
-    if (time_list[i].split("")[1] == undefined) {
-      time_list[i] = "0" + time_list[i];
+    if (time_list[t].split("")[1] == undefined) {
+      time_list[t] = "0" + time_list[t];
     }
   }
   var time = time_list[0] + ":" + time_list[1] + ":" + time_list[2];
